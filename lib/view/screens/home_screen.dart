@@ -308,7 +308,7 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              onPressed:GlobalValues.toast,
+                              onPressed: GlobalValues.toast,
                               child: Padding(
                                 padding: EdgeInsets.symmetric(vertical: 1.h),
                                 child: Text(
@@ -848,40 +848,63 @@ class HomeScreen extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: 8.h,
-          width: 60.w,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(3.h),
-            color: GlobalValues.chipColor,
-            border: Border.all(
-              color: GlobalValues.chipBorderColor,
-            ),
-          ),
-          child: Row(
+          height: 10.h,
+          width: 63.w,
+          child: Stack(
+            alignment: Alignment.centerLeft,
             children: [
-              Image.asset('assets/expertise_level.png'),
-              RichText(
-                text: TextSpan(
+              Container(
+                height: 8.h,
+                width: 60.w,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(3.h),
+                  color: GlobalValues.chipColor,
+                  border: Border.all(
+                    color: GlobalValues.chipBorderColor,
+                  ),
+                ),
+                child: Row(
                   children: [
-                    TextSpan(
-                      text: GlobalValues.level,
-                      style: TextStyle(
-                        color: GlobalValues.levelColor,
-                        fontFamily: 'Atkinson',
-                        fontSize: 15.sp,
-                      ),
+                    SizedBox(
+                      width: 22.w,
                     ),
-                    TextSpan(
-                      text: '\n${GlobalValues.levelTitle}',
-                      style: TextStyle(
-                        color: GlobalValues.textColorTop,
-                        fontSize: 20.sp,
-                        fontFamily: 'Atkinson',
-                        fontWeight: FontWeight.w500,
+                    RichText(
+                      text: TextSpan(
+                        children: [
+                          TextSpan(
+                            text: GlobalValues.level,
+                            style: TextStyle(
+                              color: GlobalValues.levelColor,
+                              fontFamily: 'Atkinson',
+                              fontSize: 15.sp,
+                            ),
+                          ),
+                          TextSpan(
+                            text: '\n${GlobalValues.levelTitle}',
+                            style: TextStyle(
+                              color: GlobalValues.textColorTop,
+                              fontSize: 20.sp,
+                              fontFamily: 'Atkinson',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
+              ),
+              Positioned(
+                child: Padding(
+                  padding: EdgeInsets.fromLTRB(0.7.h, 0.5.h, 0, 0.5.h),
+                  child: Image.asset(
+                    'assets/expertise_level.png',
+                    height: 15.h,
+                    width: 30.w,
+                    fit: BoxFit.fill,
+                  ),
+                ),
+                left: -3.h,
               ),
             ],
           ),
